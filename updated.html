@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subodh's Profile</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styling -->
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #2C3E50;
+            background-color: #FBFBFD;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* Header Styling */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #2C3E50;
+            font-size: 3em;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px #BDC3C7;
+            font-weight: 700;
+        }
+        
+        /* Tabs Styling */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1.1em;
+            color: #8E44AD;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .tab.active {
+            border-color: #8E44AD;
+            font-weight: bold;
+        }
+        
+        /* Content Section Styling */
+        .content-section {
+            display: none;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        /* Profile Image Styling */
+        .profile-image {
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Project Card Styling */
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+        
+        .project-description {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            font-style: italic;
+            color: #8E44AD;
+            margin-bottom: 15px;
+        }
+        
+        .project-link {
+            text-decoration: none;
+            color: #8E44AD;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: #5D3D99;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Subodh's Profile</h1>
+
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+        <div class="tab active" onclick="showSection('about')">About Me</div>
+        <div class="tab" onclick="showSection('projects')">Projects</div>
+        <div class="tab" onclick="showSection('contact')">Contact</div>
+    </div>
+
+    <!-- About Section with Profile Image -->
+    <div id="about" class="content-section active">
+        <h2>About Me</h2>
+        <img src="photo2.jpg" alt="Profile Picture" class="profile-image">
+        <p>Hey everyone! I'm Subodh Kumar, a passionate space tech enthusiast from Ranchi, Jharkhand. I’m currently a fresher in the ISE Branch at MSRIT. I love music, books, and occasionally indulge in a game of cricket.</p>
+    </div>
+
+    <!-- Projects Section with Cards -->
+    <div id="projects" class="content-section">
+        <h2>Projects</h2>
+        
+        <!-- Project 1: Space Explorer -->
+        <div class="project-card">
+            <div class="project-title">Project 1: Space Explorer</div>
+            <div class="project-tech">Technologies: HTML, CSS, JavaScript, NASA API</div>
+            <div class="project-description">
+                A web application that provides real-time data on space missions and satellites. Users can explore various missions, view detailed information about spacecraft, and see upcoming launches.
+            </div>
+            <a href="space_explorer.html" class="project-link">View Project</a>
+        </div>
+        
+
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="content-section">
+        <h2>Contact</h2>
+        <p>Feel free to reach out through my <a href="https://github.com/Subodh-here01/subodh" class="project-link" target="_blank">Github</a> or follow me on <a href="https://www.instagram.com/dubey_subodh31/" class="project-link" target="_blank">Instagram</a>.</p>
+    </div>
+
+    <!-- JavaScript for Tab Navigation -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Deactivate all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show the selected section and activate the selected tab
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`.tab[onclick="showSection('${sectionId}')"]`).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
