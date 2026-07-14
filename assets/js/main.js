@@ -1,4 +1,4 @@
-// Apply saved accent color immediately on load to prevent color flash
+
 (function() {
   const colors = {
     blue: '#4f8ef7',
@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           if (response.ok) {
             submitted = true;
+
           }
         } catch (err) {
           console.warn('Local backend API is offline. Falling back to public web service...');
@@ -159,15 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!submitted) {
         try {
           const formData = new FormData();
-          // Subodh's email ssubodhskd26@gmail.com can be registered with a free Web3Forms key
-          // This is a default placeholder access key for web3forms to deliver emails
-          formData.append('access_key', 'da47c94b-489e-4e47-9759-3a339906663f');
+
+          formData.append("access_key", "31a6f3ee-0fc8-4f08-b149-40d28ebee833");
           formData.append('name', name);
           formData.append('email', email);
           formData.append('message', message);
           formData.append('subject', `New message from ${name} (Portfolio)`);
 
-          // Execute fetch in the background without awaiting, preventing blocked alerts
+
           fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             body: formData
@@ -177,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Prompt immediately for a responsive user experience
       alert('Subodh is informed and will connect with you shortly.');
       form.reset();
     });
@@ -225,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
   class TextScramble {
     constructor(el) {
       this.el = el;
-      this.chars = '!<>-_\\/[]{}—=+*^?#________';
+      this.chars = '!<>-_\\/[]{}—=+*^?#';
       this.update = this.update.bind(this);
     }
     setText(newText) {
@@ -286,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'cricket player'
     ];
     const fx = new TextScramble(scrambleEl);
-    let counter = 1; // start from the second phrase since the first is initially in HTML
+    let counter = 1; 
     const next = () => {
       fx.setText(phrases[counter]).then(() => {
         setTimeout(next, 2500);
@@ -296,3 +295,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(next, 2500);
   }
 });
+
+
