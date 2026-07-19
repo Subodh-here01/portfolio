@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vscode-bg: #0d0f17;
+  --color-vscode-editor: #0e111a;
+  --color-vscode-sidebar: #080a10;
+  --color-vscode-activityBar: #05060a;
+  --color-vscode-statusBar: #05060a;
+  --color-vscode-border: rgba(255, 255, 255, 0.08);
+  --color-vscode-text: #f3f4f6;
+  --color-vscode-muted: #9ca3af;
+  --color-vscode-accent: #4f8ef7;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --accent: #4f8ef7;
+}
+
+body {
+  background-color: #030408;
+  color: #f3f4f6;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+/* Custom pulsating background blobs */
+@keyframes floatBlob1 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.15); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes floatBlob2 {
+  0%, 100% { transform: translate(0px, 0px) scale(1.1); }
+  33% { transform: translate(-40px, 40px) scale(0.9); }
+  66% { transform: translate(30px, -20px) scale(1.15); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-blob1 {
+  animation: floatBlob1 15s ease-in-out infinite alternate;
+}
+.animate-blob2 {
+  animation: floatBlob2 18s ease-in-out infinite alternate;
+}
+
+.animate-border-flow {
+  background-size: 200% 200%;
+  animation: gradientFlow 4s ease infinite;
+}
+
+/* Blinking terminal cursor next to clean status */
+.clean-status-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background-color: var(--accent);
+  margin-left: 0.2rem;
+  vertical-align: middle;
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  from, to { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+/* Custom scrollbar for editor body */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
