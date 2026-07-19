@@ -6,7 +6,7 @@ import { skillsData } from '../data/skills';
 import { Code, Cpu, Database, BookOpen, Download, Mail, Award } from 'lucide-react';
 
 // Import images for proper Vite production resolution
-import formalProfileImg from '../assets/formal_profile_enhanced.jpeg';
+import formalProfileImg from '../assets/hero.jpeg';
 import heroImg from '../assets/hero.jpeg';
 import heroPng from '../assets/hero.png';
 
