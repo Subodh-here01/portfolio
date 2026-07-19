@@ -5,12 +5,17 @@ import { experienceData, educationData, certificationsData, hackathonsData } fro
 import { skillsData } from '../data/skills';
 import { Code, Cpu, Database, BookOpen, Download, Mail, Award } from 'lucide-react';
 
+// Import images for proper Vite production resolution
+import formalProfileImg from '../assets/formal_profile_enhanced.jpeg';
+import heroImg from '../assets/hero.jpeg';
+import heroPng from '../assets/hero.png';
+
 export const EditorPane: React.FC = () => {
   const { activeTabId, accentColor, setAccentColor, reducedMotion, setReducedMotion } = useStore();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   // Image Fallback State Loader
-  const [imgSrc, setImgSrc] = useState('src/assets/subodh.png');
+  const [imgSrc, setImgSrc] = useState(formalProfileImg);
 
   // Text Scramble Loop State
   const phrases = [
@@ -185,10 +190,10 @@ export const EditorPane: React.FC = () => {
                   alt="Subodh Profile"
                   className="w-full h-full object-cover"
                   onError={() => {
-                    if (imgSrc === 'src/assets/subodh.png') {
-                      setImgSrc('src/assets/hero.jpeg');
-                    } else if (imgSrc === 'src/assets/hero.jpeg') {
-                      setImgSrc('src/assets/hero.png');
+                    if (imgSrc === formalProfileImg) {
+                      setImgSrc(heroImg);
+                    } else if (imgSrc === heroImg) {
+                      setImgSrc(heroPng);
                     } else {
                       setImgSrc('https://api.dicebear.com/7.x/bottts/svg?seed=subodh');
                     }
@@ -391,54 +396,9 @@ export const EditorPane: React.FC = () => {
       {/* 4. CP.JAVA (COMPETITIVE METRICS) */}
       {activeTabId === '/cp.java' && (
         <div className="max-w-[800px] font-mono text-xs leading-5">
-          <div className="text-vscode-muted mb-4">// cp.java - Segment Tree templates for range query limits</div>
-          <div><span className="text-[#569cd6]">import</span> java.io.*;</div>
-          <div><span className="text-[#569cd6]">import</span> java.util.*;</div>
-          <br />
-          <div><span className="text-[#569cd6]">public class</span> <span className="text-[#4ec9b0]">SegmentTree</span> {"{"}</div>
-          <div className="pl-4">
-            <div><span className="text-[#569cd6]">int</span>[] <span className="text-[#9cdcfe]">tree</span>;</div>
-            <div><span className="text-[#569cd6]">int</span> <span className="text-[#9cdcfe]">n</span>;</div>
-            <br />
-            <div><span className="text-[#569cd6]">public</span> <span className="text-[#dcdcaa]">SegmentTree</span>(<span className="text-[#569cd6]">int</span>[] arr) {"{"}</div>
-            <div className="pl-4">
-              <div>n = arr.length;</div>
-              <div>tree = <span className="text-[#569cd6]">new int</span>[4 * n];</div>
-              <div>build(arr, 0, 0, n - 1);</div>
-            </div>
-            <div>{"}"}</div>
-            <br />
-            <div><span className="text-[#569cd6]">private void</span> <span className="text-[#dcdcaa]">build</span>(<span className="text-[#569cd6]">int</span>[] arr, <span className="text-[#569cd6]">int</span> node, <span className="text-[#569cd6]">int</span> start, <span className="text-[#569cd6]">int</span> end) {"{"}</div>
-            <div className="pl-4">
-              <div><span className="text-[#569cd6]">if</span> (start == end) {"{"}</div>
-              <div className="pl-4">tree[node] = arr[start];</div>
-              <div className="pl-4"><span className="text-[#569cd6]">return</span>;</div>
-              <div>{"}"}</div>
-              <div><span className="text-[#569cd6]">int</span> mid = (start + end) / 2;</div>
-              <div>build(arr, 2 * node + 1, start, mid);</div>
-              <div>build(arr, 2 * node + 2, mid + 1, end);</div>
-              <div>tree[node] = Math.min(tree[2 * node + 1], tree[2 * node + 2]);</div>
-            </div>
-            <div>{"}"}</div>
-            <br />
-            <div><span className="text-[#569cd6]">public int</span> <span className="text-[#dcdcaa]">query</span>(<span className="text-[#569cd6]">int</span> l, <span className="text-[#569cd6]">int</span> r) {"{"}</div>
-            <div className="pl-4">
-              <div><span className="text-[#569cd6]">return</span> query(0, 0, n - 1, l, r);</div>
-            </div>
-            <div>{"}"}</div>
-            <br />
-            <div><span className="text-[#569cd6]">private int</span> <span className="text-[#dcdcaa]">query</span>(<span className="text-[#569cd6]">int</span> node, <span className="text-[#569cd6]">int</span> start, <span className="text-[#569cd6]">int</span> end, <span className="text-[#569cd6]">int</span> l, <span className="text-[#569cd6]">int</span> r) {"{"}</div>
-            <div className="pl-4">
-              <div><span className="text-[#569cd6]">if</span> (r &lt; start || end &lt; l) <span className="text-[#569cd6]">return</span> Integer.MAX_VALUE;</div>
-              <div><span className="text-[#569cd6]">if</span> (l &lt;= start && end &lt;= r) <span className="text-[#569cd6]">return</span> tree[node];</div>
-              <div><span className="text-[#569cd6]">int</span> mid = (start + end) / 2;</div>
-              <div><span className="text-[#569cd6]">return</span> Math.min(query(2 * node + 1, start, mid, l, r), query(2 * node + 2, mid + 1, end, l, r));</div>
-            </div>
-            <div>{"}"}</div>
-          </div>
-          <div>{"}"}</div>
+          <div className="text-vscode-muted mb-4">// cp.java - Competitive Programming Profiles</div>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans">
             <div className="border border-vscode-border p-4 rounded-lg bg-vscode-sidebar/30">
               <div className="text-vscode-text font-bold mb-1">LeetCode</div>
               <a href="https://leetcode.com/Subodh2106/" target="_blank" rel="noopener noreferrer" className="text-vscode-accent hover:underline text-[10px]">View Profile ↗</a>

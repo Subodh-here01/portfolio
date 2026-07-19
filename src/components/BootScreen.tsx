@@ -17,13 +17,6 @@ export const BootScreen: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Check if skipped/booted already in this session
-    const isBooted = sessionStorage.getItem('portfolio-booted') === 'true';
-    if (isBooted) {
-      setVisible(false);
-      return;
-    }
-
     // Append logs line-by-line
     if (logIndex < bootLogs.length) {
       const timeout = setTimeout(() => {
@@ -51,7 +44,6 @@ export const BootScreen: React.FC = () => {
   }, []);
 
   const handleEndBoot = () => {
-    sessionStorage.setItem('portfolio-booted', 'true');
     setVisible(false);
   };
 
