@@ -8,7 +8,7 @@ import { Code, Cpu, Database, BookOpen, Download, Mail, Award } from 'lucide-rea
 export const EditorPane: React.FC = () => {
   const { activeTabId, accentColor, setAccentColor, reducedMotion, setReducedMotion } = useStore();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  
+
   // Image Fallback State Loader
   const [imgSrc, setImgSrc] = useState('src/assets/subodh.png');
 
@@ -34,7 +34,7 @@ export const EditorPane: React.FC = () => {
       const queue: { from: string; to: string; start: number; end: number; char?: string }[] = [];
       const oldText = textRef.current;
       const length = Math.max(oldText.length, targetText.length);
-      
+
       for (let i = 0; i < length; i++) {
         const from = oldText[i] || '';
         const to = targetText[i] || '';
@@ -62,16 +62,16 @@ export const EditorPane: React.FC = () => {
             output += from;
           }
         }
-        
+
         textRef.current = output;
         setScrambleText(output);
-        
+
         if (complete < queue.length) {
           frame++;
           frameRequest = requestAnimationFrame(update);
         }
       };
-      
+
       frameRequest = requestAnimationFrame(update);
     };
 
@@ -86,7 +86,7 @@ export const EditorPane: React.FC = () => {
       cancelAnimationFrame(frameRequest);
     };
   }, []);
-  
+
   if (!activeTabId) {
     return (
       <div className="flex-grow flex flex-col justify-center items-center font-mono text-vscode-muted p-12 text-center select-none">
@@ -108,7 +108,7 @@ export const EditorPane: React.FC = () => {
 
   return (
     <div className="flex-grow overflow-y-auto p-4 md:p-8 custom-scrollbar">
-      
+
       {/* 1. INDEX.HTML (ABOUT ME) */}
       {activeTabId === '/index.html' && (
         <article className="max-w-[1000px] w-full leading-7 font-sans flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
@@ -121,7 +121,7 @@ export const EditorPane: React.FC = () => {
               Final Year ISE @ RIT Bangalore · <span className="text-[var(--accent)] font-semibold lowercase font-mono">{scrambleText}</span>
               <span className="clean-status-cursor"></span>
             </h3>
-            
+
             <div className="text-vscode-muted text-sm space-y-4">
               <p>
                 I am a final-year Information Science student at RIT Bangalore. I build web applications, automations,
@@ -137,7 +137,7 @@ export const EditorPane: React.FC = () => {
 
             {/* Resume & Core Links */}
             <div className="mt-8 flex flex-wrap gap-4 items-center">
-              <a 
+              <a
                 href="https://drive.google.com/file/d/1pXsnNpI_7c_3insvEPzyiX5mWF2PtG6e/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -147,27 +147,27 @@ export const EditorPane: React.FC = () => {
                 <span>Download Resume</span>
               </a>
               <div className="flex gap-2">
-                <a 
-                  href="https://github.com/Subodh-here01" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="p-2 bg-vscode-activityBar border border-vscode-border hover:border-[var(--accent)] rounded-lg text-vscode-muted hover:text-vscode-text transition-all" 
+                <a
+                  href="https://github.com/Subodh-here01"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-vscode-activityBar border border-vscode-border hover:border-[var(--accent)] rounded-lg text-vscode-muted hover:text-vscode-text transition-all"
                   title="GitHub"
                 >
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /></svg>
                 </a>
-                <a 
-                  href="https://www.linkedin.com/in/subodh2106/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="p-2 bg-vscode-activityBar border border-vscode-border hover:border-[var(--accent)] rounded-lg text-vscode-muted hover:text-vscode-text transition-all" 
+                <a
+                  href="https://www.linkedin.com/in/subodh2106/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-vscode-activityBar border border-vscode-border hover:border-[var(--accent)] rounded-lg text-vscode-muted hover:text-vscode-text transition-all"
                   title="LinkedIn"
                 >
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
                 </a>
-                <a 
-                  href="mailto:ssubodhskd26@gmail.com" 
-                  className="p-2 bg-vscode-activityBar border border-vscode-border hover:border-[var(--accent)] rounded-lg text-vscode-muted hover:text-vscode-text transition-all" 
+                <a
+                  href="mailto:ssubodhskd26@gmail.com"
+                  className="p-2 bg-vscode-activityBar border border-vscode-border hover:border-[var(--accent)] rounded-lg text-vscode-muted hover:text-vscode-text transition-all"
                   title="Email"
                 >
                   <Mail size={15} />
@@ -180,9 +180,9 @@ export const EditorPane: React.FC = () => {
             {/* Fancy Glow Outer Border Panel */}
             <div className="p-1 bg-gradient-to-tr from-[var(--accent)] via-indigo-500 to-purple-600 animate-border-flow rounded-3xl shadow-[0_0_30px_rgba(79,142,247,0.25)] hover:shadow-[0_0_40px_rgba(79,142,247,0.4)] transition-all duration-500">
               <div className="relative w-56 h-56 rounded-2xl overflow-hidden bg-vscode-sidebar/95 border border-white/5">
-                <img 
-                  src={imgSrc} 
-                  alt="Subodh Profile" 
+                <img
+                  src={imgSrc}
+                  alt="Subodh Profile"
                   className="w-full h-full object-cover"
                   onError={() => {
                     if (imgSrc === 'src/assets/subodh.png') {
@@ -215,7 +215,7 @@ export const EditorPane: React.FC = () => {
               </div>
               <div className="pl-0 md:pl-6 grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
                 {projectsData.map((project) => (
-                  <div 
+                  <div
                     key={project.id}
                     className="border border-vscode-border bg-vscode-sidebar/50 rounded-lg p-4 md:p-5 flex flex-col justify-between hover:border-[var(--accent)] hover:shadow-lg transition-all"
                   >
@@ -254,7 +254,7 @@ export const EditorPane: React.FC = () => {
       {activeTabId === '/experience.yaml' && (
         <div className="max-w-[800px] font-mono text-xs leading-6">
           <div className="text-vscode-muted mb-4"># experience.yaml - milestones</div>
-          
+
           <div className="mb-6">
             <span className="text-vscode-accent">experience:</span>
             {experienceData.map((exp, idx) => (
@@ -351,7 +351,7 @@ export const EditorPane: React.FC = () => {
                         <div className="text-vscode-text font-semibold text-[11px] leading-tight">{cert.name}</div>
                         <div className="text-[10px] text-vscode-muted mt-1">{cert.issuer}</div>
                       </div>
-                      <button 
+                      <button
                         onClick={() => alert(`Redirecting to view: ${cert.name}`)}
                         className="text-[10px] text-vscode-accent hover:underline cursor-pointer flex-shrink-0 font-mono"
                       >
@@ -373,7 +373,7 @@ export const EditorPane: React.FC = () => {
                         <div className="text-vscode-text font-semibold text-[11px] leading-tight">{hack.name}</div>
                         <div className="text-[10px] text-vscode-muted mt-1">{hack.issuer}</div>
                       </div>
-                      <button 
+                      <button
                         onClick={() => alert(`Redirecting to view: ${hack.name}`)}
                         className="text-[10px] text-vscode-accent hover:underline cursor-pointer flex-shrink-0 font-mono"
                       >
@@ -394,12 +394,12 @@ export const EditorPane: React.FC = () => {
           <div className="text-vscode-muted mb-4">// cp.java - Segment Tree templates for range query limits</div>
           <div><span className="text-[#569cd6]">import</span> java.io.*;</div>
           <div><span className="text-[#569cd6]">import</span> java.util.*;</div>
-          <br/>
+          <br />
           <div><span className="text-[#569cd6]">public class</span> <span className="text-[#4ec9b0]">SegmentTree</span> {"{"}</div>
           <div className="pl-4">
             <div><span className="text-[#569cd6]">int</span>[] <span className="text-[#9cdcfe]">tree</span>;</div>
             <div><span className="text-[#569cd6]">int</span> <span className="text-[#9cdcfe]">n</span>;</div>
-            <br/>
+            <br />
             <div><span className="text-[#569cd6]">public</span> <span className="text-[#dcdcaa]">SegmentTree</span>(<span className="text-[#569cd6]">int</span>[] arr) {"{"}</div>
             <div className="pl-4">
               <div>n = arr.length;</div>
@@ -407,7 +407,7 @@ export const EditorPane: React.FC = () => {
               <div>build(arr, 0, 0, n - 1);</div>
             </div>
             <div>{"}"}</div>
-            <br/>
+            <br />
             <div><span className="text-[#569cd6]">private void</span> <span className="text-[#dcdcaa]">build</span>(<span className="text-[#569cd6]">int</span>[] arr, <span className="text-[#569cd6]">int</span> node, <span className="text-[#569cd6]">int</span> start, <span className="text-[#569cd6]">int</span> end) {"{"}</div>
             <div className="pl-4">
               <div><span className="text-[#569cd6]">if</span> (start == end) {"{"}</div>
@@ -420,13 +420,13 @@ export const EditorPane: React.FC = () => {
               <div>tree[node] = Math.min(tree[2 * node + 1], tree[2 * node + 2]);</div>
             </div>
             <div>{"}"}</div>
-            <br/>
+            <br />
             <div><span className="text-[#569cd6]">public int</span> <span className="text-[#dcdcaa]">query</span>(<span className="text-[#569cd6]">int</span> l, <span className="text-[#569cd6]">int</span> r) {"{"}</div>
             <div className="pl-4">
               <div><span className="text-[#569cd6]">return</span> query(0, 0, n - 1, l, r);</div>
             </div>
             <div>{"}"}</div>
-            <br/>
+            <br />
             <div><span className="text-[#569cd6]">private int</span> <span className="text-[#dcdcaa]">query</span>(<span className="text-[#569cd6]">int</span> node, <span className="text-[#569cd6]">int</span> start, <span className="text-[#569cd6]">int</span> end, <span className="text-[#569cd6]">int</span> l, <span className="text-[#569cd6]">int</span> r) {"{"}</div>
             <div className="pl-4">
               <div><span className="text-[#569cd6]">if</span> (r &lt; start || end &lt; l) <span className="text-[#569cd6]">return</span> Integer.MAX_VALUE;</div>
@@ -437,7 +437,7 @@ export const EditorPane: React.FC = () => {
             <div>{"}"}</div>
           </div>
           <div>{"}"}</div>
-          
+
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans">
             <div className="border border-vscode-border p-4 rounded-lg bg-vscode-sidebar/30">
               <div className="text-vscode-text font-bold mb-1">LeetCode</div>
@@ -460,7 +460,7 @@ export const EditorPane: React.FC = () => {
         <div className="max-w-[600px] font-sans">
           <div className="font-mono text-xs text-vscode-muted mb-4"># contact.md</div>
           <h2 className="text-xl font-mono font-semibold text-vscode-text mb-6">Contact for Collaborations</h2>
-          
+
           <form onSubmit={handleContactSubmit} className="space-y-4 text-xs font-mono">
             <div className="flex flex-col gap-1.5">
               <label className="text-vscode-muted uppercase tracking-wider">Name</label>
@@ -511,9 +511,9 @@ export const EditorPane: React.FC = () => {
           <div>{"{"}</div>
           <div className="pl-6">
             <div>
-              <span className="text-[#9cdcfe]">"workspace.theme"</span>: 
+              <span className="text-[#9cdcfe]">"workspace.theme"</span>:
               <span className="text-vscode-muted pl-2">// click to cycle settings</span>
-              <button 
+              <button
                 onClick={() => {
                   const options = ['blue', 'green', 'amber', 'purple'];
                   const nextIdx = (options.indexOf(accentColor) + 1) % options.length;
@@ -526,8 +526,8 @@ export const EditorPane: React.FC = () => {
             </div>
 
             <div className="mt-2">
-              <span className="text-[#9cdcfe]">"workspace.reducedMotion"</span>: 
-              <button 
+              <span className="text-[#9cdcfe]">"workspace.reducedMotion"</span>:
+              <button
                 onClick={() => setReducedMotion(!reducedMotion)}
                 className="bg-white/5 hover:bg-white/10 px-2 py-0.5 border border-vscode-border rounded text-vscode-accent font-semibold ml-2 cursor-pointer transition-colors"
               >
